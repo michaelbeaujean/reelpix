@@ -6,6 +6,10 @@ ReelpixApp::Application.routes.draw do
  root 'welcome#index'
  resources :users
 
+ get '/session/new' => "session#new"
+ post '/session' => "session#create"
+ get '/logout' => "session#destroy"
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
