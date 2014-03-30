@@ -3,3 +3,7 @@
   <%= f.text_field(:name) %>
   <%= f.submit %>
 <% end %>
+
+<%= form_for(@playlist, method: "delete") do |f| %>
+  <%= f.submit("Delete") %>
+<% end %>
