@@ -19,8 +19,8 @@ class PlaylistsController < ApplicationController
   end
 
   def show
-    @playlist_user = session[:user_id]
-    @playlist = Playlist.find_by(id: @playlist_user)
+    playlist_user = session[:user_id]
+    @playlist = Playlist.where(user_id: playlist_user)
   end
 
 end

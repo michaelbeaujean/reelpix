@@ -3,6 +3,7 @@
 <p>Hi <%= current_user.name %>!  Here are your current playlists: </p>
 
 <p>Playlists: </p>
-<%= @playlist.name %>
-
+<% @playlist.map do |playlist| %>
+  <%= playlist.name %> <br>
+<% end %>
 <% end %>
