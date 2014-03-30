@@ -1,6 +1,7 @@
 <% if logged_in? %>
 
 <h3>Welcome <%= current_user.name %>!</h3>
+<a href="/playlists/new">Make a playlist</a>
 <a href="/logout">Log out</a>
 
 <% else %>

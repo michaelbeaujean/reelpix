@@ -6,6 +6,7 @@ ReelpixApp::Application.routes.draw do
  root 'welcome#index'
  resources :users
  resources :playlists
+ resources :titles
 
  get '/session/new' => "session#new"
  post '/session' => "session#create"
