@@ -1,0 +1,8 @@
+<% if logged_in? %>
+
+<p>Hi <%= current_user.name %>!  Here are your current playlists: </p>
+
+<p>Playlists: </p>
+<%= @playlist.name %>
+
+<% end %>
