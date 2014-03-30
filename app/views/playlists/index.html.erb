@@ -1,0 +1,9 @@
+<% if logged_in? %>
+
+<a href="/playlists/new">Click to create a playlist</a>
+<a href="/playlists/show">View all current playlists</a>
+
+<% else %>
+<a href="/users/new">Sign up!</a> <br>
+<a href="/session/new">Log-in!</a>
+<% end %>

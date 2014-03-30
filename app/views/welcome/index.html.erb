@@ -1,0 +1,12 @@
+<h2>Welcome to Reelpix!</h2>
+
+<% if logged_in? %>
+<p>Hi <%= current_user.name %> </p>
+<a href="/playlists/new">Make a playlist</a> <br>
+<a href="/playlists/show">View all your current playlists</a><br>
+<a href="/logout">Log-out!</a>
+<% else %>
+<a href="/users/new">Sign up!</a> <br>
+<a href="/session/new">Log-in!</a>
+<% end %>
+
