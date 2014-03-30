@@ -18,6 +18,18 @@ class PlaylistsController < ApplicationController
     end
   end
 
+  def edit
+    @playlist_id = params[:id]
+    @playlist = Playlist.find_by(id: @playlist_id)
+  end
+
+  def update
+    @playlist_id = params[:id]
+    @playlist = Playlist.find_by(id: @playlist_id)
+    @playlist.update(name: params[:playlist][:name])
+    redirect_to("/playlists/#{@playlist_id}")
+  end
+
   def show
     playlist_user = session[:user_id]
     @playlist = Playlist.where(user_id: playlist_user)

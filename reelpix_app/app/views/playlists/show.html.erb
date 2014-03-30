@@ -4,6 +4,6 @@
 
 <p>Playlists: </p>
 <% @playlist.map do |playlist| %>
-  <%= playlist.name %> <br>
+  <a href="/playlists/<%= playlist.id %>/edit"><%= playlist.name %> </a> <br>
 <% end %>
 <% end %>
