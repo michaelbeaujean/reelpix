@@ -3,6 +3,14 @@ class PlaylistsController < ApplicationController
   def index
   end
 
+  def show_titles
+    @search_results = {}
+    base_url = "http://staging-api-us.crackle.com/Service.svc/"
+    title_name = params[:title_search]
+    response = HTTParty.get("#{base_url}search/media/#{title_name}/us/")
+    @crackle_item = response["CrackleItemList"]["Items"]["CrackleItem"]
+  end
+
   def new
     @playlist = Playlist.new
   end

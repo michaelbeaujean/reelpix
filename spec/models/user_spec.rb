@@ -1,6 +1,8 @@
 require '../spec_helper'
 
 describe User do
+  it { should have_many(:playlists) }
+
   it { should validate_presence_of(:name) }
   it { should ensure_length_of(:password).is_at_least(8).is_at_most(16) }
   it { should have_secure_password }

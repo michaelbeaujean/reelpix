@@ -10,7 +10,14 @@
 <a href="/session/new">Log-in!</a>
 <% end %>
 
-<form input="/titles" action="get">
+<!-- <form input="/titles" action="get">
   <label="title_search">Title:</label>
   <input type="text" name="title_search">
-</form>
+  <button type="submit">Submit</button>
+</form> -->
+
+<%= form_tag("/playlists/show_titles", method: "post") do %>
+  <%= label_tag(:title_search, "Search for title:") %>
+  <%= text_field_tag(:title_search) %>
+  <%= submit_tag("Search") %>
+<% end %>
