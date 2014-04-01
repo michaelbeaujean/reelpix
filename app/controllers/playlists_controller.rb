@@ -2,6 +2,7 @@ class PlaylistsController < ApplicationController
   require 'uri'
 
   def index
+
   end
 
   def show_titles

@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
   def show
     user_id = params[:id]
+    @user = User.find_by(id: user_id)
     @playlists = Playlist.where(user_id: user_id)
   end
 

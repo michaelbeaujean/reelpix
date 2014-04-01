@@ -1,8 +1,6 @@
-<% if logged_in? %>
+<h3><%= @user.name %>'s Profile</h3>
 
-<h3><%= current_user.name %>'s Profile</h3>
-
-<h2><%= current_user.name %>'s Current Playlists</h2> <br>
+<h4><%= @user.name %>'s Current Playlists</h4>
 <dl>
 <% @playlists.each do |playlist| %>
   <strong><%= playlist.name %></strong> <br>
@@ -11,11 +9,12 @@
     <% end %>
 <% end %>
 </dl>
-<a href="/playlists/new">Make a playlist</a>
-<a href="/logout">Log out</a>
+<a href="/playlists/new">Make a playlist</a> <br>
+<a href="/logout">Log out</a> <br>
 
-<% else %>
+<% if !logged_in? %>
 
+<a href="/">Home</a> <br>
 <a href="/users/new">Sign up!</a> <br>
 <a href="/session/new">Log-in!</a>
 
