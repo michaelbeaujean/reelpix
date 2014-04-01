@@ -5,9 +5,15 @@ ReelpixApp::Application.routes.draw do
   # You can have the root of your site routed with "root"
  root 'welcome#index'
  resources :users
- resources :playlists
+ resources :playlists do
+  collection do
+    get 'show_titles'
+  end
+end
 
- post '/playlists/show_titles' => "playlists#show_titles"
+
+ get '/playlists/:title/add_title' => "playlists#add_title"
+ # get '/playlists/show_titles' => "playlists#show_titles"
  get '/session/new' => "session#new"
  post '/session' => "session#create"
  get '/logout' => "session#destroy"
