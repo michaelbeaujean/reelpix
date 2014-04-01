@@ -28,6 +28,12 @@ class UsersController < ApplicationController
     # binding.pry
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @playlist.destroy
+
+    redirect_to("/")
+  end
 
     private
 

@@ -13,7 +13,7 @@ class PlaylistsController < ApplicationController
     @crackle_item = response["CrackleItemList"]["Items"]["CrackleItem"]
     # ^ stop here because items may be nil
     # if not nil get crackle item.
-    binding.pry
+    # binding.pry
   end
 
   def add_title

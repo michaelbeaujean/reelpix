@@ -7,7 +7,7 @@
   <%= f.label(:username) %> <br>
   <%= f.text_field(:username) %> <br>
   <%= f.label(:image_url) %> <br>
-  <%= f.text_field(:image_url) %> <br>
+  <%= f.text_field(:image_url) %>>
   <%= f.label(:location) %> <br>
   <%= f.text_field(:location) %> <br>
   <%= f.label(:age) %><br>
@@ -17,3 +17,10 @@
   <%= f.label(:favorite_tv_shows) %><br>
   <%= f.text_field(:favorite_tv_shows) %>
 <% end %>
+<br>
+<%= form_for(@user, method: "delete") do |f| %>
+  <%= f.submit("Delete Profile") %>
+<% end %>
+<br>
+<a href="/">Home</a> <br>
+<a href="/logout">Logout</a>
