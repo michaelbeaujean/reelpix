@@ -4,6 +4,7 @@
 <p>Hi <%= current_user.name %> </p>
 <a href="/playlists/new">Make a playlist</a> <br>
 <a href="/playlists">View all your current playlists</a><br>
+<a href="/users/<%= current_user.id %>">View your profile</a><br>
 <a href="/logout">Log-out!</a>
 <% else %>
 <a href="/users/new">Sign up!</a> <br>

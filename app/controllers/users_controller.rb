@@ -20,6 +20,7 @@ class UsersController < ApplicationController
     user_id = params[:id]
     @user = User.find_by(id: user_id)
     @playlists = Playlist.where(user_id: user_id)
+    # binding.pry
   end
 
 
@@ -30,7 +31,13 @@ class UsersController < ApplicationController
         :name,
         :email,
         :password,
-        :password_confirmation
+        :password_confirmation,
+        :image_url,
+        :location,
+        :age,
+        :favorite_movies,
+        :favorite_tv_shows,
+        :username
         )
     end
 

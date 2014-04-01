@@ -1,11 +1,15 @@
 <% if logged_in? %>
 
-<p>Hi <%= current_user.name %>!  Here are your current playlists: </p> <br>
-
-  <%= @playlist.name %> <br>
-  <% @playlist.titles.each do |title| %><br>
-    <%= title.name %>
-
-  <% end %>
+<p>Congrats <%= current_user.name %>!  You've updated your playlist <strong><%= @playlist.name %></strong> </p>
 
 <% end %>
+
+<u><h3> <%= @playlist.name %> </h3></u>
+<p>by <%= @playlist.user.username %></p><br>
+<strong>Titles:</strong>
+  <% @playlist.titles.each do |title| %>
+    <a href="http://www.crackle.com/c/<%= title.name.gsub(' ', '-') %>" target="_blank"><li><%= title.name %></li></a>
+  <% end %>
+  <br><br>
+<a href="/">Home</a> <br>
+<a href="/logout">Logout</a>

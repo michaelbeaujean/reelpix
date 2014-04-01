@@ -1,15 +1,15 @@
 
 
-<% @crackle_item.map do |item| %>
-  <p>Title:</p><%= item["Title"] %> <br>
-  <img src="<%= item["ImageUrl11"] %>" alt="Title Image" >
-  <p><%= item["Genre"] %>,  <%= item["Rating"] %> </p>
-  <p><%= item["Description"] %></p>
+
+  <p>Title:</p><%= @crackle_item["Title"] %> <br>
+  <img src="<%= @crackle_item["ImageUrl11"] %>" alt="Title Image" >
+  <p><%= @crackle_item["Genre"] %>,  <%= @crackle_item["Rating"] %> </p>
+  <p><%= @crackle_item["Description"] %></p>
   <%= form_for(Title.new) do |f| %>
 <!--   form to create a new title
   send back title to save
   need to connect it to a playlist -->
-  <input type="text" name="title[Title]" value="<%= item["Title"] %>">
+  <input type="text" name="title[Title]" value="<%= @crackle_item["Title"] %>">
   <select name="title[playlist_id]">
     <% current_user.playlists.each do |playlist| %>
     <option value="<%= playlist.id %>"><%= playlist.name %></option>
@@ -17,4 +17,4 @@
   </select>
     <%= f.submit %>
   <% end %>
-<% end %>
+

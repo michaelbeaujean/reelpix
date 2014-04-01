@@ -1,6 +1,13 @@
-<h3><%= @user.name %>'s Profile</h3>
+<h3><%= @user.username %>'s Profile</h3> <br>
+<img src="<%= @user.image_url %>" width="170" height="170"> <br>
+Name: <%= @user.name %> <br>
+Age: <%= @user.age %> <br>
+Location: <%= @user.location %> <br>
+Favorite Movies: <%= @user.favorite_movies %> <br>
+Favorite TV Shows: <%= @user.favorite_tv_shows %> <br><br>
 
-<h4><%= @user.name %>'s Current Playlists</h4>
+
+<h4><%= @user.username %>'s Current Playlists</h4>
 <dl>
 <% @playlists.each do |playlist| %>
   <strong><%= playlist.name %></strong> <br>

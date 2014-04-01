@@ -10,11 +10,10 @@ class PlaylistsController < ApplicationController
     title_name = URI.escape(params[:title_search])
       # ^ should replace spaces with %20's
     response = HTTParty.get("#{base_url}search/media/#{title_name}/us/")
-    # binding.pry
-    @crackle_item = response["CrackleItemList"]["Items"]
+    @crackle_item = response["CrackleItemList"]["Items"]["CrackleItem"]
     # ^ stop here because items may be nil
     # if not nil get crackle item.
-    ["CrackleItem"]
+    binding.pry
   end
 
   def add_title
