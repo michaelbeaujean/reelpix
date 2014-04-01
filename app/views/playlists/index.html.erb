@@ -1,9 +1,14 @@
 <% if logged_in? %>
 
-<a href="/playlists/new">Click to create a playlist</a>
-<a href="/playlists/show">View all current playlists</a>
+<p>Hi <%= current_user.name %>!  Here are your current playlists: </p>
 
-<% else %>
-<a href="/users/new">Sign up!</a> <br>
-<a href="/session/new">Log-in!</a>
+<p>Playlists: </p>
+<% current_user.playlists.each do |playlist| %>
+  <a href="/playlists/<%= playlist.id %>"><%= playlist.name %> </a>
+  <a href="/playlists/<%= playlist.id %>/edit"><button type="submit">Edit/Delete</button></a> <br>
 <% end %>
+<% end %>
+<br><br>
+
+<a href="/">Home</a> <br>
+<a href="/logout">Logout</a>

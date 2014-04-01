@@ -1,6 +1,16 @@
 <% if logged_in? %>
 
-<h3>Welcome <%= current_user.name %>!</h3>
+<h3><%= current_user.name %>'s Profile</h3>
+
+<h2><%= current_user.name %>'s Current Playlists</h2> <br>
+<dl>
+<% @playlists.each do |playlist| %>
+  <strong><%= playlist.name %></strong> <br>
+    <% playlist.titles.each do |title| %>
+      <a href="http://www.crackle.com/c/<%= title.name.gsub(' ', '-') %>"><dd><%= title.name %></dd></a>
+    <% end %>
+<% end %>
+</dl>
 <a href="/playlists/new">Make a playlist</a>
 <a href="/logout">Log out</a>
 

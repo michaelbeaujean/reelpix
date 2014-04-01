@@ -17,6 +17,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    user_id = params[:id]
+    @playlists = Playlist.where(user_id: user_id)
   end
 
 

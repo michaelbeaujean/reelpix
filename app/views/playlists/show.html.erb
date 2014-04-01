@@ -1,10 +1,10 @@
 <% if logged_in? %>
 
-<p>Hi <%= current_user.name %>!  Here are your current playlists: </p>
+<p>Hi <%= current_user.name %>!  Here are your current playlists: </p> <br>
 
-<p>Playlists: </p>
-<% @playlist.map do |playlist| %>
-  <a href="/playlists/<%= playlist.id %>/edit"><%= playlist.name %> </a> <br>
-<% end %>
+  <%= @playlist.name %> <br>
+  <% @playlist.titles.each do |title| %><br>
+    <%= title.name %>
+  <% end %>
 
 <% end %>

@@ -1,13 +1,19 @@
 class PlaylistsController < ApplicationController
+  require 'uri'
 
   def index
   end
 
   def show_titles
     base_url = "http://staging-api-us.crackle.com/Service.svc/"
-    title_name = params[:title_search]
+    title_name = URI.escape(params[:title_search])
+      # ^ should replace spaces with %20's
     response = HTTParty.get("#{base_url}search/media/#{title_name}/us/")
-    @crackle_item = response["CrackleItemList"]["Items"]["CrackleItem"]
+    # binding.pry
+    @crackle_item = response["CrackleItemList"]["Items"]
+    # ^ stop here because items may be nil
+    # if not nil get crackle item.
+    ["CrackleItem"]
   end
 
   def add_title
@@ -46,8 +52,9 @@ class PlaylistsController < ApplicationController
   end
 
   def show
+    # binding.pry
     @playlist_user = session[:user_id]
-    @playlist = Playlist.where(user_id: @playlist_user)
+    @playlist = Playlist.find_by(id: params[:id])
   end
 
   def destroy

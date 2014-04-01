@@ -10,6 +10,8 @@ ReelpixApp::Application.routes.draw do
     get 'show_titles'
   end
 end
+  resources :titles
+
 
 
  get '/playlists/:title/add_title' => "playlists#add_title"

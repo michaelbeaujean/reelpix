@@ -1,29 +1,13 @@
-# class TitlesController < ApplicationController
+class TitlesController < ApplicationController
 
-#   def index
-#   end
+  def create
+    # binding.pry
+    title = params["title"]["Title"]
+    playlist_id = params["title"]["playlist_id"]
+    playlist = Playlist.find_by(id: playlist_id)
+    new_title = Title.create(name: title)
+    playlist.titles << new_title
+    redirect_to("/playlists/#{playlist_id}")
+  end
 
-#   # def search
-#   #   @title_name = params[:title_name]
-#   #     if @title_name
-#   #      redirect_to("#{base_url}search/media/#{@title_name}/us/")
-#   #     else
-#   #      render(:new)
-#   #     end
-#   # end
-
-#   def new
-#     @title_name = params[:title_name]
-#     @title_search = Title.search
-#   end
-
-#   def create
-#   end
-
-#   def show
-#     @base_url = "http://staging-api-us.crackle.com/Service.svc/"
-#     @title_name = params[:title_name]
-#     response = HTTParty.get("#{@base_url}search/media/#{@title_name}/us/")
-#     @title = response["CrackleItemList"]["Items"]["CrackleItem"][0]["Title"]
-#   end
-# end
+end
