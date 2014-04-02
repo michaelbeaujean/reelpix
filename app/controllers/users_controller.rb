@@ -22,6 +22,25 @@ class UsersController < ApplicationController
     @user = User.find_by(id: user_id)
   end
 
+  def update
+    user_id = params[:id]
+    @user = User.find_by(id: user_id)
+    # binding.pry
+    @user.update(
+      name: params[:user][:name],
+      username: params[:user][:username],
+      password: params[:user][:password],
+      password_confirmation: params[:user][:password_confirmation],
+      image_url: params[:user][:image_url],
+      location: params[:user][:location],
+      age: params[:user][:age],
+      favorite_movies: params[:user][:favorite_movies],
+      favorite_tv_shows: params[:user][:favorite_tv_shows]
+      )
+    # binding.pry
+    redirect_to("/users/#{user_id}")
+  end
+
   def show
     user_id = params[:id]
     @user = User.find_by(id: user_id)

@@ -23,13 +23,13 @@ class PlaylistsController < ApplicationController
     # if not nil get crackle item.
   end
 
-  def add_title
-    @playlist = Playlist.find_by(id: 8)
-    title = params[:title]
-    @playlist.titles_hash["Title"] = title
-    @playlist.save
-    # binding.pry
-  end
+  # def add_title
+  #   @playlist = Playlist.find_by(id: 8)
+  #   title = params[:title]
+  #   @playlist.titles_hash["Title"] = title
+  #   @playlist.save
+  #   # binding.pry
+  # end
 
   def new
     @playlist = Playlist.new
