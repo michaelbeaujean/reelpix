@@ -39,6 +39,7 @@ group :development, :test do
   gem 'annotate'
   gem 'rspec-rails'
   gem 'pry-rails'
+  gem 'rails-erd'
 end
 
 group :test do
