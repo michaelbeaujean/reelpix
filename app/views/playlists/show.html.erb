@@ -8,8 +8,9 @@
 <p>by <%= @playlist.user.username %></p><br>
 <strong>Titles:</strong>
   <% @playlist.titles.each do |title| %>
+      <% if title.name %>
       <a href="http://www.crackle.com/c/<%= title.name.gsub(' ', '-') %>" target="_blank"><li><%= title.name %></li></a>
-    <% end %>
+      <% end %>
   <% end %>
   <br><br>
 <center>
