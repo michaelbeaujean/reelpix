@@ -7,6 +7,6 @@ class TitlesController < ApplicationController
     new_title = Title.create(name: title)
     playlist.titles << new_title
     redirect_to("/playlists/#{playlist_id}")
-  end
+    end
 
 end
