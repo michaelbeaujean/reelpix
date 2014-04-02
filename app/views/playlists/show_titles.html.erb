@@ -1,9 +1,9 @@
 <% if @response_class.instance_of?(Array) %>
   <% @response_class.each do |title| %>
-    <p>Title:</p><%= title["Title"] %> <br>
+    <p>Title:</p><strong><%= title["Title"] %></strong> <br>
     <img src="<%= title["ImageUrl11"] %>" alt="Title Image" >
-    <p><%= title["Genre"] %>,  <%= title["Rating"] %> </p>
-    <p><%= title["Description"] %></p>
+    <p><%= title["Genre"] %>,  <%= title["Rating"] %> <br>
+    <em><%= title["Description"] %></em></p>
       <!--   form to create a new title
     send back title to save
     need to connect it to a playlist -->
@@ -12,35 +12,32 @@
     <select name="title[playlist_id]">
       <% current_user.playlists.each do |playlist| %>
     <option value="<%= playlist.id %>"><%= playlist.name %></option>
+      <% end %>
     </select>
     <%= f.submit %>
-  <% end %>
     <% end %>
   <% end %>
 
 <% elsif @response_class.instance_of?(Hash) %>
-  <p>Title:</p><%= @response_class["Title"] %> <br>
+  <p>Title: <strong><%= @response_class["Title"] %></strong></p>
   <img src="<%= @response_class["ImageUrl11"] %>" alt="Title Image" >
-  <p><%= @response_class["Genre"] %>,  <%= @response_class["Rating"] %> </p>
-  <p><%= @response_class["Description"] %></p>
+  <p><%= @response_class["Genre"] %>, <strong> <%= @response_class["Rating"] %></strong> <br>
+  <em><%= @response_class["Description"] %></em> </p>
   <%= form_for(Title.new) do |f| %>
 <!--   form to create a new title
   send back title to save
   need to connect it to a playlist -->
   <input type="text" name="@response_class[Title]" value="<%= @response_class["Title"] %>">
   <select name="title[playlist_id]">
-
-
     <% current_user.playlists.each do |playlist| %>
     <option value="<%= playlist.id %>"><%= playlist.name %></option>
     <% end %>
-
-
   </select>
     <%= f.submit %>
   <% end %>
 <% end %>
 
-<a href="/">Home</a>
-<a href="/logout">Logout</a>
+<center>
+<a href="/">Home</a> | <a href="/logout">Logout</a>
+</center>
 

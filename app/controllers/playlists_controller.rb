@@ -17,7 +17,7 @@ class PlaylistsController < ApplicationController
       #   @crackle_item = response_class.each do |title|
       #     title
       #   end
-      #   binding.pry
+        # binding.pry
       # end
     # ^ stop here because items may be nil
     # if not nil get crackle item.

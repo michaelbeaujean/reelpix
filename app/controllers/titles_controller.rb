@@ -1,7 +1,6 @@
 class TitlesController < ApplicationController
 
   def create
-    # binding.pry
     title = params["title"]["Title"]
     playlist_id = params["title"]["playlist_id"]
     playlist = Playlist.find_by(id: playlist_id)

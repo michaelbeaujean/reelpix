@@ -1,18 +1,11 @@
-<h2>Welcome to Reelpix!</h2>
-
+<center><h4>Welcome to Reelpix!</h4></center>
+  <br>
 <% if logged_in? %>
-<p>Hi <%= current_user.name %> </p>
-<a href="/playlists/new">Make a playlist</a> <br>
-<a href="/playlists">View all your current playlists</a><br>
-<a href="/users/<%= current_user.id %>">View your profile</a><br>
-<a href="/logout">Log-out!</a>
-<% else %>
-<a href="/users/new">Sign up!</a> <br>
-<a href="/session/new">Log-in!</a>
-<% end %>
-
+<center>
 <%= form_tag("/playlists/show_titles", method: "get") do %>
   <%= label_tag(:title_search, "Search for title:") %>
   <%= text_field_tag(:title_search) %>
   <%= submit_tag("Search") %>
+<% end %>
+</center>
 <% end %>
