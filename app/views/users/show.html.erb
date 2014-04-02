@@ -16,7 +16,9 @@
 <% @playlists.each do |playlist| %>
   <strong><%= playlist.name %></strong>
     <% playlist.titles.each do |title| %>
+      <% if title.name %>
       <a href="http://www.crackle.com/c/<%= title.name.gsub(' ', '-') %>" target="_blank"><dd><%= title.name %></dd></a>
+      <% end %>
     <% end %>
 <% end %>
 </dl>
