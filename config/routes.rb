@@ -10,12 +10,8 @@ ReelpixApp::Application.routes.draw do
     get 'show_titles'
   end
 end
-  resources :titles
+ resources :titles
 
-
-
- get '/playlists/:title/add_title' => "playlists#add_title"
- # get '/playlists/show_titles' => "playlists#show_titles"
  get '/session/new' => "session#new"
  post '/session' => "session#create"
  get '/logout' => "session#destroy"

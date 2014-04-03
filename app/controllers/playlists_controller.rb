@@ -2,7 +2,6 @@ class PlaylistsController < ApplicationController
   require 'uri'
 
   def index
-
   end
 
   def show_titles
@@ -11,25 +10,7 @@ class PlaylistsController < ApplicationController
       # ^ should replace spaces with %20's
     response = HTTParty.get("#{base_url}search/media/#{title_name}/us/")
     @response_class = response["CrackleItemList"]["Items"]["CrackleItem"]
-      # if response_class.instance_of?(Hash)
-      #   @crackle_item = response["CrackleItemList"]["Items"]["CrackleItem"]
-      # elsif response_class.instance_of?(Array)
-      #   @crackle_item = response_class.each do |title|
-      #     title
-      #   end
-        # binding.pry
-      # end
-    # ^ stop here because items may be nil
-    # if not nil get crackle item.
   end
-
-  # def add_title
-  #   @playlist = Playlist.find_by(id: 8)
-  #   title = params[:title]
-  #   @playlist.titles_hash["Title"] = title
-  #   @playlist.save
-  #   # binding.pry
-  # end
 
   def new
     @playlist = Playlist.new
