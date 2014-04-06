@@ -1,41 +1,21 @@
-<% if @response_class.instance_of?(Array) %>
-  <% @response_class.each do |title| %>
-    <p>Title:</p><strong><%= title["Title"] %></strong> <br>
-    <img src="<%= title["ImageUrl11"] %>" alt="Title Image" >
-    <p><%= title["Genre"] %>,  <%= title["Rating"] %> <br>
-    <em><%= title["Description"] %></em></p>
-      <!--   form to create a new title
-    send back title to save
-    need to connect it to a playlist -->
-    <%= form_for(Title.new) do |f| %>
-    <input type="text" name="title[Title]" value="<%= title["Title"] %>">
-    <select name="title[playlist_id]">
-      <% current_user.playlists.each do |playlist| %>
-    <option value="<%= playlist.id %>"><%= playlist.name %></option>
-      <% end %>
-    </select>
-    <%= f.submit %>
-    <% end %>
-  <% end %>
 
-<% elsif @response_class.instance_of?(Hash) %>
-  <p>Title: <strong><%= @response_class["Title"] %></strong></p>
-  <img src="<%= @response_class["ImageUrl11"] %>" alt="Title Image" >
-  <p><%= @response_class["Genre"] %>, <strong> <%= @response_class["Rating"] %></strong> <br>
-  <em><%= @response_class["Description"] %></em> </p>
+<% @titles.each do |title| %>
+  <p>Title:</p><strong><%= title["Title"] %></strong> <br>
+  <img src="<%= title["ImageUrl11"] %>" alt="Title Image" >
+  <p><%= title["Genre"] %>,  <%= title["Rating"] %> <br>
+  <em><%= title["Description"] %></em></p>
   <%= form_for(Title.new) do |f| %>
-<!--   form to create a new title
-  send back title to save
-  need to connect it to a playlist -->
-  <input type="text" name="@response_class[Title]" value="<%= @response_class["Title"] %>">
+  <input type="text" name="title[Title]" value="<%= title["Title"] %>">
+  <input type="text" name="title[ID]" value="<%= title["ID"] %>">
   <select name="title[playlist_id]">
     <% current_user.playlists.each do |playlist| %>
-    <option value="<%= playlist.id %>"><%= playlist.name %></option>
+  <option value="<%= playlist.id %>"><%= playlist.name %></option>
     <% end %>
   </select>
-    <%= f.submit %>
+  <%= f.submit %>
   <% end %>
 <% end %>
+
 
 <center>
 <a href="/">Home</a> | <a href="/logout">Logout</a>

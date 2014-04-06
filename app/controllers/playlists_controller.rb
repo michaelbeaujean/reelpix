@@ -5,11 +5,7 @@ class PlaylistsController < ApplicationController
   end
 
   def show_titles
-    base_url = "http://staging-api-us.crackle.com/Service.svc/"
-    title_name = URI.escape(params[:title_search])
-      # ^ should replace spaces with %20's
-    response = HTTParty.get("#{base_url}search/media/#{title_name}/us/")
-    @response_class = response["CrackleItemList"]["Items"]["CrackleItem"]
+    @titles = Playlist.fetch_titles(params[:title_search])
   end
 
   def new
