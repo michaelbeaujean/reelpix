@@ -18,5 +18,3 @@ class Playlist < ActiveRecord::Base
     end
   end
 end
-
-# details/media/{mediaID}/{geoCode}
