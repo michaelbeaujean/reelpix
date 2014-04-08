@@ -8,16 +8,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<center>
-<h1>Reelpix</h1>
-<% if logged_in? %>
-<a href="/">Home</a> | <a href="/playlists/new">Make a playlist</a> | <a href="/playlists">View all your current playlists</a> | <a href="/users/<%= current_user.id %>">View/Edit your profile</a> | <a href="/logout">Log-out!</a>
-<% else %>
-<a href="/users/new">Sign-up</a> | <a href="/session/new">Log-in</a>
-<% end %>
-</center>
-<br><br>
-<%= yield %>
+  <center>
+    <h1>Reelpix</h1>
+
+    <% if logged_in? %>
+      <%= render "/layouts/user_dashboard" %>
+    <% else %>
+      <%= render "/layouts/nonuser_dashboard" %>
+    <% end %>
+  </center>
+
+  <%= yield %>
 
 </body>
 </html>

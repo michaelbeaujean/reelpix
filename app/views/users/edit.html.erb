@@ -1,32 +1,6 @@
 <h3>Update Profile:</h3>
 
-<img src="<%= @user.image_url %>" height="50" width="50"> <br>
-<%= form_for(@user) do |f| %>
-  <%= f.label(:name) %> <br>
-  <%= f.text_field(:name) %> <br>
-  <%= f.label(:username) %> <br>
-  <%= f.text_field(:username) %> <br>
-  <%= f.label(:password) %> <br>
-  <%= f.password_field(:password) %> <br>
-  <%= f.label(:password_confirmation) %> <br>
-  <%= f.password_field(:password_confirmation) %> <br>
-  <%= f.label(:image_url) %> <br>
-  <%= f.text_field(:image_url) %> <br>
-  <%= f.label(:location) %> <br>
-  <%= f.text_field(:location) %> <br>
-  <%= f.label(:age) %> <br>
-  <%= f.number_field(:age) %> <br>
-  <%= f.label(:favorite_movies) %> <br>
-  <%= f.text_field(:favorite_movies) %> <br>
-  <%= f.label(:favorite_tv_shows) %> <br>
-  <%= f.text_field(:favorite_tv_shows) %> <br>
-  <%= f.submit %>
-<% end %>
-<br>
-<%= form_for(@user, method: "delete") do |f| %>
-  <%= f.submit("Delete Profile") %>
-<% end %>
-<br>
-<center>
-<a href="/">Home</a> | <a href="/logout">Logout</a>
-</center>
+<img src="<%= @user.image_url %>" height="50" width="50">
+
+<%= render "edit_user_form" %>
+<%= render "delete_user_form" %>

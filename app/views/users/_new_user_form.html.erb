@@ -1,0 +1,23 @@
+<%= form_for (@user) do |f| %>
+  <%= f.label(:name) %>
+  <%= f.text_field(:name) %> <br>
+  <%= f.label(:username) %>
+  <%= f.text_field(:username) %> <br>
+  <%= f.label(:email) %>
+  <%= f.text_field(:email) %><br>
+  <%= f.label(:password) %>
+  <%= f.password_field(:password) %><br>
+  <%= f.label(:password_confirmation) %>
+  <%= f.password_field(:password_confirmation) %><br>
+  <%= f.label(:location) %>
+  <%= f.text_field(:location) %><br>
+  <%= f.label(:age) %>
+  <%= f.number_field(:age) %><br>
+  <%= f.label(:image_url) %>
+  <%= f.text_field(:image_url) %><br>
+  <%= f.label(:favorite_movies) %>
+  <%= f.text_field(:favorite_movies) %><br>
+  <%= f.label(:favorite_tv_shows) %>
+  <%= f.text_field(:favorite_tv_shows) %><br>
+  <%= f.submit %>
+<% end %>

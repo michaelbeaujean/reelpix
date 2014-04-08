@@ -1,14 +1,5 @@
 <h3>Update Playlist Name:</h3>
-<%= form_for(@playlist) do |f| %>
-  <%= f.label(:name) %>
-  <%= f.text_field(:name) %>
-  <%= f.submit %>
-<% end %>
 
-<%= form_for(@playlist, method: "delete") do |f| %>
-  <%= f.submit("Delete") %>
-<% end %>
+<%= render "edit_playlist_form" %>
 
-<center>
-<a href="/">Home</a> | <a href="/logout">Logout</a>
-</center>
+<%= render "delete_playlist_form" %>

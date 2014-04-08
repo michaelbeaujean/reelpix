@@ -2,28 +2,12 @@
 <a href="/users/<%= current_user.id %>/edit">Edit Profile</a>
 <% end %>
 
-<h3><%= @user.username %>'s Profile</h3>
-<img src="<%= @user.image_url %>" width="170" height="170"> <br><br>
-<strong>Name:</strong> <%= @user.name %> <br>
-<strong>Age:</strong> <%= @user.age %> <br>
-<strong>Location:</strong> <%= @user.location %> <br>
-<strong>Favorite Movies:</strong> <%= @user.favorite_movies %> <br>
-<strong>Favorite TV Shows:</strong> <%= @user.favorite_tv_shows %> <br><br>
-
+<%= render partial: "show_user_info", locals: { user: @user } %>
 
 <h4><%= @user.username %>'s Current Playlists</h4>
-<dl>
-<% @playlists.each do |playlist| %>
-  <strong><%= playlist.name %></strong>
-    <% playlist.titles.each do |title| %>
-      <% if title.name %>
-      <a href="http://www.crackle.com/c/<%= title.name.gsub(' ', '-') %>" target="_blank"><dd><%= title.name %></dd></a>
-      <% end %>
-    <% end %>
-<% end %>
-</dl>
-<br><br>
-<a href="/playlists/new">Make a playlist</a> | <a href="/logout">Log out</a>
+
+<%= render partial: "show_user_playlists", collection: @playlists, as: "playlist" %>
+
 
 <% if !logged_in? %>
 

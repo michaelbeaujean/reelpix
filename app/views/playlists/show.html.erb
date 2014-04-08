@@ -1,18 +1,7 @@
 <% if logged_in? %>
 
-<p>Congrats <%= current_user.name %>!  You've updated your playlist <strong><%= @playlist.name %></strong> </p>
+<p>Hey <%= current_user.name %>! Here's <strong><%= @playlist.name %></strong> </p>
 
 <% end %>
 
-<u><h3> <%= @playlist.name %> </h3></u>
-<p>by <%= @playlist.user.username %></p><br>
-<strong>Titles:</strong>
-  <% @playlist.titles.each do |title| %>
-      <% if title.name %>
-      <a href="http://www.crackle.com/c/<%= title.name.gsub(' ', '-') %>" target="_blank"><li><%= title.name %></li></a>
-      <% end %>
-  <% end %>
-  <br><br>
-<center>
-<a href="/">Home</a> | <a href="/logout">Logout</a>
-</center>
+<%= render partial: "show_playlist_titles", locals: { playlist: @playlist} %>
