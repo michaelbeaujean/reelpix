@@ -1,5 +1,5 @@
 <% if logged_in? %>
-<a href="/users/<%= current_user.id %>/edit">Edit Profile</a>
+<a href="/users/<%= current_user.id %>/edit"><button>Edit Profile</button></a>
 <% end %>
 
 <%= render partial: "show_user_info", locals: { user: @user } %>

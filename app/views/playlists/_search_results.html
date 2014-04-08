@@ -1,20 +1,27 @@
-<div class="title">
-  <p>Title:</p>
-    <strong><%= title["Title"] %></strong> <br>
-  <img src="<%= title["ImageUrl11"] %>" alt="Title Image" >
-  <p>
-    <%= title["Genre"] %>,  <%= title["Rating"] %>
-  </p>
-    <em><%= title["Description"] %></em> <br><br>
+<div class="title_result">
+  <div class="title_name">
+    <%= title_result["Title"] %>
+  </div>
+  <img src="<%= title_result["ImageUrl11"] %>" alt="Title Image" >
 
+  <div class="genre_rating">
+    <%= title_result["Genre"] %>,  <%= title_result["Rating"] %>
+  </div>
+
+    <div class="description">
+      <%= title_result["Description"] %>
+    </div>
+
+  <div class="add_form">
   <%= form_for(Title.new) do |f| %>
-    <input type="text" name="title[Title]" value="<%= title["Title"] %>">
-    <select name="title[playlist_id]">
+    <input type="text" name="title_result[Title]" value="<%= title_result["Title"] %>">
+    <select name="title_result[playlist_id]">
       <% current_user.playlists.each do |playlist| %>
         <option value="<%= playlist.id %>"><%= playlist.name %></option>
       <% end %>
     </select>
     <%= f.submit %>
   <% end %>
+  </div>
 
 </div>

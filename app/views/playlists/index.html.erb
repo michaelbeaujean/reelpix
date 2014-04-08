@@ -3,13 +3,11 @@
 <p>Hi <%= current_user.name %>!  Here are your current playlists: </p>
 
 <p>Playlists: </p>
+
+<div class="playlist_index">
 <% current_user.playlists.each do |playlist| %>
   <a href="/playlists/<%= playlist.id %>"><%= playlist.name %> </a>
   <a href="/playlists/<%= playlist.id %>/edit"><button type="submit">Edit/Delete</button></a> <br>
 <% end %>
+</div>
 <% end %>
-<br><br>
-
-<center>
-<a href="/">Home</a> | <a href="/logout">Logout</a>
-</center>
