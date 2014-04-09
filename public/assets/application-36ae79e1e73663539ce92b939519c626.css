@@ -1,0 +1,84 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+
+.playlist_index {
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.playlist_index button {
+  margin-left: 15px;
+}
+body {
+  font-family: helvetica, arial, sans-serif;
+  color: black;
+  background-image: url(movie-reel.png);
+  background-attachment: fixed;
+  background-size: 100%;
+  margin-left: 70px;
+  margin-right: 60px;
+}
+
+
+.title_result .title_name {
+  font-weight: bold;
+  font-style: oblique;
+  text-decoration: underline;
+  padding: 10px;
+}
+
+.title_result img {
+  padding: 10px;
+}
+
+.title_result .genre_rating {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.title_result .description {
+  font-style: oblique;
+  padding: 5px;
+}
+
+.title_result .add_form {
+  padding: 15px;
+}
+.user {
+  margin-left: 20px;
+}
+
+.user .username_profile {
+  padding: 10px;
+  font-weight: bold;
+}
+
+.user img {
+  margin-left: 10px;
+}
+
+.user .user_info {
+  padding: 10px;
+}
+
+.playlist {
+  margin-left: 20px;
+  padding: 10px;
+}
+
+.playlist .playlist_title {
+  padding: 5px;
+}
