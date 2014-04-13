@@ -8,9 +8,3 @@
 
 <%= render partial: "show_user_playlists", collection: @playlists, as: "playlist" %>
 
-
-<% if !logged_in? %>
-
-<a href="/">Home</a> <br> | <a href="/users/new">Sign up!</a> <br> | <a href="/session/new">Log-in!</a>
-
-<% end %>

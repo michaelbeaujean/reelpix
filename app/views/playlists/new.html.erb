@@ -1,13 +1,6 @@
-<% if logged_in? %>
 <h3>Make a playlist</h3>
 <%= form_for(@playlist) do |f| %>
   <%= f.label(:name) %>
   <%= f.text_field(:name) %>
   <%= f.submit %>
-<% end %>
-<% else %>
-<p>Please log in to make a playlist!</a>
-<center>
-<a href="/session/new">Log-in!</a>| <a href="/users/new">Sign up!</a>
-</center>
 <% end %>

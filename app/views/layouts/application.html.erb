@@ -8,7 +8,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <center>
+  <div class="dashboard">
     <h1>Reelpix</h1>
 
     <% if logged_in? %>
@@ -16,7 +16,11 @@
     <% else %>
       <%= render "/layouts/nonuser_dashboard" %>
     <% end %>
-  </center>
+  </div>
+
+  <% if flash %>
+  <%= flash[:error] %>
+  <% end %>
 
   <%= yield %>
 

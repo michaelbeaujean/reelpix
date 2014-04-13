@@ -1,4 +1,5 @@
 class PlaylistsController < ApplicationController
+  skip_before_action :require_login, only: [:show]
   require 'uri'
 
   def index

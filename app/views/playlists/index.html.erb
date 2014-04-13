@@ -1,5 +1,3 @@
-<% if logged_in? %>
-
 <p>Hi <%= current_user.name %>!  Here are your current playlists: </p>
 
 <p>Playlists: </p>
@@ -10,4 +8,4 @@
   <a href="/playlists/<%= playlist.id %>/edit"><button type="submit">Edit/Delete</button></a> <br>
 <% end %>
 </div>
-<% end %>
+

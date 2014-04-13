@@ -40,6 +40,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'pry-rails'
   gem 'rails-erd'
+  gem 'capybara'
+  gem 'nyan-cat-formatter'
 end
 
 group :test do
