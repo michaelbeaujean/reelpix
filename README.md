@@ -14,6 +14,6 @@ Allows users to make custom playlists of movie & TV titles through Crackle's API
 
 ### Heroku URL
 
-[Reelpix on Heroku](http://cherry-shortcake-8211.herokuapp.com/)
+[Reelpix on Heroku](http://reelpix.herokuapp.com/)
 
 
