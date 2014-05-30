@@ -13,6 +13,8 @@ class Playlist < ActiveRecord::Base
     if response["CrackleItemList"]["Count"] == "1"
         titles << response["CrackleItemList"]["Items"]["CrackleItem"]
       return titles
+    elsif response["CrackleItemList"]["Items"] == nil
+      return titles
     else
       return titles = response["CrackleItemList"]["Items"]["CrackleItem"]
     end

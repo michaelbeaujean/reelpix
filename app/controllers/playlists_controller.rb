@@ -7,6 +7,11 @@ class PlaylistsController < ApplicationController
 
   def show_titles
     @titles = Playlist.fetch_titles(params[:title_search])
+    # binding.pry
+    if @titles.size == 0
+      flash[:error] = "Sorry! Title is unavailable at the moment!"
+      redirect_to root_path
+    end
   end
 
   def new
