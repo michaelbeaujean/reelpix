@@ -1,0 +1,30 @@
+<div id="title-result-container">
+  <div class="title-result">
+    <div id="title-name">
+      <%= title_result["Title"] %>
+    </div>
+    <img src="<%= title_result["ImageUrl11"] %>" alt="Title Image" >
+
+    <div id="genre-rating">
+      <%= title_result["Genre"] %>,  <%= title_result["Rating"] %>
+    </div>
+
+      <div id="description">
+        <%= title_result["Description"] %>
+      </div>
+
+    <% if logged_in? %>
+      <div id="add-form">
+      <%= form_for(Title.new) do |f| %>
+        <input type="text" name="title_result[Title]" value="<%= title_result["Title"] %>">
+        <select name="title_result[playlist_id]">
+          <% current_user.playlists.each do |playlist| %>
+            <option value="<%= playlist.id %>"><%= playlist.name %></option>
+          <% end %>
+        </select>
+        <%= f.submit %>
+      <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

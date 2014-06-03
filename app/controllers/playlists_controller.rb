@@ -1,5 +1,5 @@
 class PlaylistsController < ApplicationController
-  skip_before_action :require_login, only: [:show]
+  skip_before_action :require_login, only: [:show_titles]
   require 'uri'
 
   def index
@@ -7,7 +7,6 @@ class PlaylistsController < ApplicationController
 
   def show_titles
     @titles = Playlist.fetch_titles(params[:title_search])
-    # binding.pry
     if @titles.size == 0
       flash[:error] = "Sorry! Title is unavailable at the moment!"
       redirect_to root_path
@@ -42,7 +41,6 @@ class PlaylistsController < ApplicationController
   end
 
   def show
-    # binding.pry
     @playlist_user = session[:user_id]
     @playlist = Playlist.find_by(id: params[:id])
   end

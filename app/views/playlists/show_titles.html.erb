@@ -1,2 +1,5 @@
-<%= render partial: "search_results", collection: @titles, as: "title_result" %>
+<% if !logged_in? %>
+  <p>Create an account / log in to start making playlists!</p>
+<% end %>
 
+<%= render partial: "search_results", collection: @titles, as: "title_result" %>
