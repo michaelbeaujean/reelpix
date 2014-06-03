@@ -9,8 +9,9 @@
 </head>
 <body>
   <div id="dashboard">
-    <img src="<%= asset_path("logos/#{rand(8)}.png") %>">
-
+    <a href="<%= root_path %>">
+      <img src="<%= asset_path("logos/#{rand(8)}.png") %>"> <br>
+    </a>
     <% if logged_in? %>
       <%= render "/layouts/user_dashboard" %>
     <% else %>
