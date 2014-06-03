@@ -1,10 +1,27 @@
 <% if logged_in? %>
 <a href="/users/<%= current_user.id %>/edit"><button>Edit Profile</button></a>
 <% end %>
+<br>
 
-<%= render partial: "show_user_info", locals: { user: @user } %>
+<div id="user-profile-container">
+  <div id="user-profile">
+    <div id="user-header">
+        <img src="<%= asset_path('reel-small.png') %>">
+      <p><%= @user.username %>'s Profile</p>
+      </p>
+    </div>
+    <div id="user-info">
+      <%= render partial: "show_user_info", locals: { user: @user } %>
+    </div>
+  </div>
 
-<h4><%= @user.username %>'s Current Playlists</h4>
-
-<%= render partial: "show_user_playlists", collection: @playlists, as: "playlist" %>
-
+  <div id="user-playlists">
+    <div id="user-header">
+      <img src="<%= asset_path('reel-small.png') %>">
+      <p><%= @user.username %>'s Current Playlists</p>
+    </div>
+    <div id="playlists">
+      <%= render partial: "show_user_playlists", collection: @playlists, as: "playlist" %>
+    </div>
+  </div>
+</div>

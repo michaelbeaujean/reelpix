@@ -3,13 +3,13 @@
   <dl>
   <% playlist.titles.each do |title| %>
       <% if title.name %>
-      <div id="playlist_title">
-      <a href="http://www.crackle.com/c/<%= title.name.gsub(' ', '-') %>" target="_blank"><dd><%= title.name %></dd></a>
+      <div class="playlist_title">
+        <a href="http://www.crackle.com/c/<%= title.name.gsub(' ', '-') %>" target="_blank"><dd><%= title.name %></dd></a>
       </div>
       <% end %>
     <% end %>
   </dl>
-</div>  <!-- playlist -->
+</div>
 
 
 
