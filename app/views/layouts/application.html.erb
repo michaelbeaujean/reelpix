@@ -9,9 +9,9 @@
 </head>
 <body>
   <div id="dashboard">
-    <a href="<%= root_path %>">
-      <img src="<%= asset_path("logos/#{rand(8)}.png") %>"> <br>
-    </a>
+    <a id="logo-home" href="<%= root_path %>">
+      <img src="<%= asset_path("logos/#{rand(8)}.png") %>">
+    </a><br>
     <% if logged_in? %>
       <%= render "/layouts/user_dashboard" %>
     <% else %>
@@ -23,7 +23,17 @@
   <%= flash[:error] %>
   <% end %>
 
+  <div id="title-search">
+    <%= form_tag("/playlists/show_titles", method: "get") do %>
+      <%= label_tag(:title_search, "Search for title:") %>
+      <%= text_field_tag(:title_search) %>
+      <%= submit_tag("Search") %>
+    <% end %>
+  </div>
+
   <%= yield %>
+
+  <p id="contact">Developed by Michael Beaujean // <a href="http://michaelbeaujean.com" target="_blank">MichaelBeaujean.com</a><p>
 
 </body>
 </html>
