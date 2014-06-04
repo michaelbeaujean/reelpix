@@ -1,11 +1,13 @@
 <div id="title-result-container">
   <div class="title-result">
     <div id="title-name">
-      <img src="<%= asset_path('reel-small.png') %>">
-      <%= title_result["Title"] %>
+      <% title = title_result["Title"] %>
+      <a href="http://www.crackle.com/c/<%= title.gsub(/ /, '-') %>" target="_blank">
+        <img src="<%= asset_path('reel-small.png') %>">
+        <%= title %> <br>
+        <img class="poster" src="<%= title_result["ImageUrl11"] %>" alt="Title Image" >
+      </a>
     </div>
-    <img src="<%= title_result["ImageUrl11"] %>" alt="Title Image" >
-
     <div id="genre-rating">
       <%= title_result["Genre"] %>,  <%= title_result["Rating"] %>
     </div>
